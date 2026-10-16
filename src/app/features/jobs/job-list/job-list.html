@@ -1,0 +1,24 @@
+<h2>Список вакансій</h2>
+
+    <!-- 1. Стан завантаження -->
+    @if (jobsResource.isLoading()) {
+      <p>Завантаження вакансій...</p>
+    }
+
+    <!-- 2. Обробка помилки -->
+    @if (jobsResource.error()) {
+      <div class="error">
+        <p>Не вдалося завантажити дані.</p>
+        <button (click)="jobsResource.reload()">Спробувати знову</button>
+      </div>
+    }
+    <!-- 3. Відображення списку, якщо дані є -->
+    @if (jobsResource.value(); as jobs) {
+      <ul>
+        @for (job of jobs; track job.id) {
+          <li><strong>{{ job.position }}</strong> в {{ job.company }}</li>
+        } @empty {
+          <li>Наразі немає доступних вакансій.</li>
+        }
+      </ul>
+    }

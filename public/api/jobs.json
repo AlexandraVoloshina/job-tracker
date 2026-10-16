@@ -1,0 +1,7 @@
+[
+  { "id": "1", "company": "Grammarly", "position": "Senior Angular Developer", "status": "interview", "appliedAt": "2026-10-01", "salary": 4500 },
+  { "id": "2", "company": "EPAM", "position": "Angular Developer", "status": "applied", "appliedAt": "2026-10-05" },
+  { "id": "3", "company": "SoftServe", "position": "Senior Frontend Developer", "status": "offer", "appliedAt": "2026-09-20", "salary": 4000 },
+  { "id": "4", "company": "GlobalLogic", "position": "Angular Developer", "status": "rejected", "appliedAt": "2026-09-15", "notes": "Шукали React" },
+  { "id": "5", "company": "Ciklum", "position": "Senior Angular Engineer", "status": "applied", "appliedAt": "2026-10-10", "salary": 4200 }
+]
