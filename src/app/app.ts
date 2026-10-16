@@ -7,6 +7,4 @@ import { JobList } from './features/jobs/job-list/job-list';
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
-export class App {
-  protected readonly title = signal('job-tracker');
-}
+export class App {}

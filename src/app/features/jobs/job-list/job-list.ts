@@ -10,5 +10,5 @@ import { httpResource } from '@angular/common/http';
 })
 export class JobList {
 
-  jobsResource = httpResource<Job[]>(() => '/api/jobs.json');
+  protected readonly jobsResource = httpResource<Job[]>(() => '/api/jobs.json');
 }
