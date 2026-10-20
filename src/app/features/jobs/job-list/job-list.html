@@ -10,7 +10,9 @@
 } @else if (jobsResource.hasValue()) {
   <ul>
     @for (job of jobsResource.value(); track job.id) {
-      <app-job-card [job]="job" />
+      <li>
+        <app-job-card [job]="job" />
+      </li>
     } @empty {
       <li>Наразі немає доступних вакансій.</li>
     }

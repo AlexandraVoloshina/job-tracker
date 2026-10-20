@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { JobList } from './features/jobs/job-list/job-list';
 
 @Component({

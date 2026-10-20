@@ -1,9 +1,9 @@
 <article class="job-card">
-  <h2>{{ job().position }}</h2>
+  <h3>{{ job().position }}</h3>
   <p class="company">{{ job().company }}</p>
 
-  @if (job().salary) {
-    <p class="salary">${{ job().salary | number:'1.0-0':'uk-UA' }}</p>
+  @if (job().salary != null) {
+    <p class="salary">${{ job().salary | number:'1.0-0' }}</p>
   }
 
   <time [attr.datetime]="job().appliedAt">{{ job().appliedAt | date:'d MMM y':undefined:'uk-UA' }}</time>

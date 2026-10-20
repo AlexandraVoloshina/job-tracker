@@ -1,9 +1,6 @@
 import { Component, input } from '@angular/core';
 import { DatePipe, DecimalPipe, registerLocaleData } from '@angular/common';
-import ukLocale from '@angular/common/locales/uk';
 import { Job } from '../../../core/job.model';
-
-registerLocaleData(ukLocale);
 
 @Component({
   imports: [DatePipe, DecimalPipe],
@@ -12,5 +9,5 @@ registerLocaleData(ukLocale);
   templateUrl: './job-card.html',
 })
 export class JobCard {
-  job = input.required<Job>();
+  readonly job = input.required<Job>();
 }
