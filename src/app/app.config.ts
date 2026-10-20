@@ -4,10 +4,14 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
 
+import { LOCALE_ID } from '@angular/core';
+
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    provideHttpClient()
+    provideHttpClient(),
+    { provide: LOCALE_ID, useValue: 'uk' },
   ]
 };

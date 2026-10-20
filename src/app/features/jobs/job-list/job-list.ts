@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Job } from '../../../core/job.model';
 import { httpResource } from '@angular/common/http';
+import { JobCard } from '../job-card/job-card';
 
 @Component({
-  imports: [],
+  imports: [JobCard],
   selector: 'app-job-list',
   styleUrl: './job-list.scss',
   templateUrl: './job-list.html',

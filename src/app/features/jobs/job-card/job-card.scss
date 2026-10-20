@@ -1,0 +1,45 @@
+.job-card {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.job-card h2,
+.job-card p {
+  margin: 0;
+}
+
+.company,
+time {
+  color: #666;
+}
+
+.salary {
+  font-weight: 600;
+}
+
+.status-badge {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.875rem;
+}
+
+.status-applied {
+  color: #555;
+  background: #eee;
+}
+
+.status-interview {
+  color: #1456a0;
+  background: #e3f0ff;
+}
+
+.status-offer {
+  color: #176b36;
+  background: #e3f5e9;
+}
+
+.status-rejected {
+  color: #a32626;
+  background: #fde8e8;
+}

@@ -1,0 +1,28 @@
+<article class="job-card">
+  <h2>{{ job().position }}</h2>
+  <p class="company">{{ job().company }}</p>
+
+  @if (job().salary) {
+    <p class="salary">${{ job().salary | number:'1.0-0':'uk-UA' }}</p>
+  }
+
+  <time [attr.datetime]="job().appliedAt">{{ job().appliedAt | date:'d MMM y':undefined:'uk-UA' }}</time>
+
+  @let status = job().status;
+
+  @switch (status) {
+    @case ('applied') {
+      <span class="status-badge status-applied">Відгук надіслано</span>
+    }
+    @case ('interview') {
+      <span class="status-badge status-interview">Співбесіда</span>
+    }
+    @case ('offer') {
+      <span class="status-badge status-offer">Офер</span>
+    }
+    @case ('rejected') {
+      <span class="status-badge status-rejected">Відмова</span>
+    }
+    @default never;
+  }
+</article>
