@@ -1,13 +1,39 @@
-<form (submit)="onSubmit($event)" class="job-form">
-    <input [formField]="jobForm.company" />
-    <input [formField]="jobForm.position" />
-    <input type="number" [formField]="jobForm.salary" />
+<section class="job-form-card" aria-labelledby="job-form-title">
+  <header class="job-form-header">
+    <h2 id="job-form-title">Додати вакансію</h2>
+    <p>Збережіть деталі вакансії у своєму трекері.</p>
+  </header>
 
-    <select [formField]="jobForm.status">
-        @for (opt of statuses; track opt) {
-        <option [value]="opt">{{ opt }}</option>
+  <form (submit)="onSubmit($event)" class="job-form">
+    <label class="form-field">
+      <span>Компанія</span>
+      <input data-testid="company" autocomplete="organization" [formField]="jobForm.company" />
+    </label>
+
+    <label class="form-field">
+      <span>Посада</span>
+      <input data-testid="position" autocomplete="organization-title" [formField]="jobForm.position" />
+    </label>
+
+    <label class="form-field">
+      <span>Зарплата <span class="optional-label">необов’язково</span></span>
+      <div class="salary-input">
+        <span aria-hidden="true">$</span>
+        <input data-testid="salary" type="number" inputmode="numeric" [formField]="jobForm.salary" />
+      </div>
+    </label>
+
+    <label class="form-field">
+      <span>Статус</span>
+      <select data-testid="status" [formField]="jobForm.status">
+        @for (status of statuses; track status.value) {
+          <option [value]="status.value">{{ status.label }}</option>
         }
-    </select>
+      </select>
+    </label>
 
-    <button type="submit" [disabled]="jobForm().invalid()">Submit</button>
-</form>
+    <button data-testid="submit" type="submit" [disabled]="jobForm().invalid()">
+      Додати вакансію
+    </button>
+  </form>
+</section>

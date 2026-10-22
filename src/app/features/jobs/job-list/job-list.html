@@ -7,7 +7,7 @@
     <p>Не вдалося завантажити дані.</p>
     <button type="button" (click)="store.reload()">Спробувати знову</button>
   </div>
-} @else if (store.jobs().length > 0) {
+} @else {
   <ul>
     @for (job of store.jobs(); track job.id) {
       <li>

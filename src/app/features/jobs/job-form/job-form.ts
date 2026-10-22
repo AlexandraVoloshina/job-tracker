@@ -18,16 +18,21 @@ interface JobFormModel {
 })
 export class JobForm {
   protected readonly store = inject(JobsStore);
-  readonly job = signal<JobFormModel>({
+  protected readonly job = signal<JobFormModel>({
     company: '',
     position: '',
     salary: null,
     status: 'applied',
   });
 
-  readonly statuses: JobStatus[] = ['applied', 'interview', 'offer', 'rejected'];
+  readonly statuses: { value: JobStatus; label: string }[] = [
+    { value: 'applied', label: 'Відгук надіслано' },
+    { value: 'interview', label: 'Проведено інтерв’ю' },
+    { value: 'offer', label: 'Отримано пропозицію' },
+    { value: 'rejected', label: 'Відхилено' },
+  ];
 
-  readonly jobForm = form(this.job, (p) => {
+  protected readonly jobForm = form(this.job, (p) => {
     required(p.company, { message: 'Вкажіть компанію' });
     required(p.position, { message: 'Вкажіть посаду' });
     min(p.salary, 0, { message: 'Зарплата не може бути від’ємною' });

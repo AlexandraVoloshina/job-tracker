@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { DatePipe, DecimalPipe, registerLocaleData } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { Job } from '../../../core/job.model';
 
 @Component({
