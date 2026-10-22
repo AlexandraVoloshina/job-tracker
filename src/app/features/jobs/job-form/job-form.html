@@ -1,1 +1,13 @@
-<p>job-form works!</p>
+<form (submit)="onSubmit($event)" class="job-form">
+    <input [formField]="jobForm.company" />
+    <input [formField]="jobForm.position" />
+    <input type="number" [formField]="jobForm.salary" />
+
+    <select [formField]="jobForm.status">
+        @for (opt of statuses; track opt) {
+        <option [value]="opt">{{ opt }}</option>
+        }
+    </select>
+
+    <button type="submit" [disabled]="jobForm().invalid()">Submit</button>
+</form>

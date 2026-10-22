@@ -18,4 +18,13 @@ describe('JobForm', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('disables the submit button when the company is empty', async () => {
+    component.job.update((job) => ({ ...job, position: 'Frontend developer' }));
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    const button: HTMLButtonElement = fixture.nativeElement.querySelector('button[type="submit"]');
+    expect(button.disabled).toBe(true);
+  });
 });

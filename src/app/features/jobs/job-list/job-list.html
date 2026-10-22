@@ -1,15 +1,15 @@
 <h2>Список вакансій</h2>
 
-@if (jobsResource.isLoading()) {
+@if (store.isLoading()) {
   <p>Завантаження вакансій...</p>
-} @else if (jobsResource.error()) {
+} @else if (store.error()) {
   <div class="error">
     <p>Не вдалося завантажити дані.</p>
-    <button type="button" (click)="jobsResource.reload()">Спробувати знову</button>
+    <button type="button" (click)="store.reload()">Спробувати знову</button>
   </div>
-} @else if (jobsResource.hasValue()) {
+} @else if (store.jobs().length > 0) {
   <ul>
-    @for (job of jobsResource.value(); track job.id) {
+    @for (job of store.jobs(); track job.id) {
       <li>
         <app-job-card [job]="job" />
       </li>

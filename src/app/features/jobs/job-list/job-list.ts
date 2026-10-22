@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { Job } from '../../../core/job.model';
-import { httpResource } from '@angular/common/http';
+import { Component, inject } from '@angular/core';
+import { JobsStore } from '../../../core/jobs-store';
 import { JobCard } from '../job-card/job-card';
 
 @Component({
@@ -11,5 +10,5 @@ import { JobCard } from '../job-card/job-card';
 })
 export class JobList {
 
-  protected readonly jobsResource = httpResource<Job[]>(() => '/api/jobs.json');
+  protected readonly store = inject(JobsStore);
 }

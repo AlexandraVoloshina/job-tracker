@@ -6,7 +6,7 @@
     <p class="salary">${{ job().salary | number:'1.0-0' }}</p>
   }
 
-  <time [attr.datetime]="job().appliedAt">{{ job().appliedAt | date:'d MMM y':undefined:'uk-UA' }}</time>
+  <time [attr.datetime]="job().appliedAt">{{ job().appliedAt | date:'d MMM y':undefined }}</time>
 
   @let status = job().status;
 
