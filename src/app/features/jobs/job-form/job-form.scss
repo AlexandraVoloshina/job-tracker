@@ -102,6 +102,12 @@
   font-weight: 400;
 }
 
+.field-error {
+  color: #b91c1c;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
 .job-form button {
   grid-column: 1 / -1;
   min-height: 2.875rem;

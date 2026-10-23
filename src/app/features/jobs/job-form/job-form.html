@@ -21,6 +21,11 @@
         <span aria-hidden="true">$</span>
         <input data-testid="salary" type="number" inputmode="numeric" [formField]="jobForm.salary" />
       </span>
+      @if (jobForm.salary().touched() && jobForm.salary().invalid()) {
+        @for (err of jobForm.salary().errors(); track err.kind) {
+          <small class="field-error">{{ err.message }}</small>
+        }
+      }
     </label>
 
     <label class="form-field">

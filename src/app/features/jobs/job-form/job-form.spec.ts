@@ -31,6 +31,17 @@ describe('JobForm', () => {
     expect(button.disabled).toBe(true);
   });
 
+  it('shows a salary validation error after entering a negative value and blurring the field', async () => {
+    const salaryInput = getElement<HTMLInputElement>('salary');
+    salaryInput.value = '-1';
+    salaryInput.dispatchEvent(new Event('input', { bubbles: true }));
+    salaryInput.dispatchEvent(new Event('blur'));
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.textContent).toContain('Зарплата не може бути від’ємною');
+  });
+
   it('calls JobsStore.add after the form is filled and submitted', async () => {
     setInputValue('company', 'Example');
     setInputValue('position', 'Frontend developer');
