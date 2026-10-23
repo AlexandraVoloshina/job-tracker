@@ -8,11 +8,21 @@
     <label class="form-field">
       <span>Компанія</span>
       <input data-testid="company" autocomplete="organization" [formField]="jobForm.company" />
+      @if (jobForm.company().touched() && jobForm.company().invalid()) {
+        @for (err of jobForm.company().errors(); track err.kind) {
+          <small class="field-error">{{ err.message }}</small>
+        }
+      }
     </label>
 
     <label class="form-field">
       <span>Посада</span>
       <input data-testid="position" autocomplete="organization-title" [formField]="jobForm.position" />
+      @if (jobForm.position().touched() && jobForm.position().invalid()) {
+        @for (err of jobForm.position().errors(); track err.kind) {
+          <small class="field-error">{{ err.message }}</small>
+        }
+      }
     </label>
 
     <label class="form-field">

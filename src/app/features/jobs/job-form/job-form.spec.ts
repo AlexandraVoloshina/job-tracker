@@ -31,6 +31,16 @@ describe('JobForm', () => {
     expect(button.disabled).toBe(true);
   });
 
+  it('shows required errors for company and position after blur', async () => {
+    getElement<HTMLInputElement>('company').dispatchEvent(new Event('blur'));
+    getElement<HTMLInputElement>('position').dispatchEvent(new Event('blur'));
+    fixture.detectChanges();
+    await fixture.whenStable();
+
+    expect(fixture.nativeElement.textContent).toContain('Вкажіть компанію');
+    expect(fixture.nativeElement.textContent).toContain('Вкажіть посаду');
+  });
+
   it('shows a salary validation error after entering a negative value and blurring the field', async () => {
     const salaryInput = getElement<HTMLInputElement>('salary');
     salaryInput.value = '-1';
