@@ -12,16 +12,16 @@
 
   @switch (status) {
     @case ('applied') {
-      <span class="status-badge status-applied">Відгук надіслано</span>
+      <span class="status-badge status-applied">{{ statusLabels[status] }}</span>
     }
     @case ('interview') {
-      <span class="status-badge status-interview">Співбесіда</span>
+      <span class="status-badge status-interview">{{ statusLabels[status] }}</span>
     }
     @case ('offer') {
-      <span class="status-badge status-offer">Офер</span>
+      <span class="status-badge status-offer">{{ statusLabels[status] }}</span>
     }
     @case ('rejected') {
-      <span class="status-badge status-rejected">Відмова</span>
+      <span class="status-badge status-rejected">{{ statusLabels[status] }}</span>
     }
     @default never;
   }

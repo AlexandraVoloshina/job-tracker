@@ -50,6 +50,8 @@ describe('JobForm', () => {
         status: 'applied',
       }),
     );
+    fixture.detectChanges();
+    expect(getElement<HTMLInputElement>('company').value).toBe('');
   });
 
   function getElement<T extends HTMLElement>(testId: string): T {

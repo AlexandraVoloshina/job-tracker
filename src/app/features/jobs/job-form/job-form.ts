@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { JobsStore } from '../../../core/jobs-store';
-import { Job, JobStatus } from '../../../core/job.model';
+import { JOB_STATUS_LABELS, Job, JobStatus } from '../../../core/job.model';
 import { form, required, min, FormField } from '@angular/forms/signals';
 
 interface JobFormModel {
@@ -25,12 +25,10 @@ export class JobForm {
     status: 'applied',
   });
 
-  readonly statuses: { value: JobStatus; label: string }[] = [
-    { value: 'applied', label: 'Відгук надіслано' },
-    { value: 'interview', label: 'Проведено інтерв’ю' },
-    { value: 'offer', label: 'Отримано пропозицію' },
-    { value: 'rejected', label: 'Відхилено' },
-  ];
+  readonly statuses = Object.entries(JOB_STATUS_LABELS).map(([value, label]) => ({
+    value: value as JobStatus,
+    label,
+  }));
 
   protected readonly jobForm = form(this.job, (p) => {
     required(p.company, { message: 'Вкажіть компанію' });
